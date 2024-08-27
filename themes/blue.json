@@ -1,3 +1,4 @@
+
 {
   "CTk": {
     "fg_color": ["gray92", "gray14"]
@@ -152,4 +153,5 @@
       "weight": "normal"
     }
   }
+
 }
