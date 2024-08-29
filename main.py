@@ -22,14 +22,17 @@ import string
 import random
 
 # Global variables
+
 theme_text_colour = "#32CD32"  # Default green color
 apptheme = "themes/green.json"
 
 # Set initial theme
+
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme(apptheme)
 
 # Initialize the window
+
 root = ctk.CTk()
 root.geometry("1500x950")
 root.title("Not my password manager .exe")
@@ -41,6 +44,7 @@ __________
 '''
 
 # Theme change functions
+
 def theme_dark():
     global theme_text_colour, apptheme
     theme_text_colour = "#32CD32"  # Green text for dark theme
@@ -58,6 +62,7 @@ def theme_light():
     update_widgets_theme()
 
 # Function to update widgets' text color
+
 def update_widgets_theme():
     label.configure(text_color=theme_text_colour)
     labele.configure(text_color=theme_text_colour)
@@ -76,6 +81,7 @@ def update_widgets_theme():
 
 
 # Process for encryption/decryption
+
 def update_variable():
     global switch_state
     if switch.get() == 1:  # ON state
@@ -111,6 +117,7 @@ def start_encryption():
     label1.see(tk.END)
 
 # Generate encryption key
+
 def generate_key():
     chars = " " + string.punctuation + string.digits + string.ascii_letters
     chars = list(chars)
@@ -119,6 +126,9 @@ def generate_key():
     textbox.insert(tk.END, new_chars)
     textbox.see(tk.END)
 
+# declaring variables
+switch_state = 2
+
 '''
 ____________________
 widgets top frame
@@ -126,6 +136,7 @@ ____________________
 '''
 
 # Create UI components
+
 frame = ctk.CTkFrame(
     master=root
 )
@@ -219,6 +230,7 @@ label1.pack(
 )
 
 # Dark and Light theme buttons
+
 button_dark = ctk.CTkButton(
     master=frame,
     text="Dark mode",
@@ -232,7 +244,13 @@ button_dark.place(
     y=10
 )
 
-button_light = ctk.CTkButton(master=frame, text="Light mode", font=("consolas", 24), corner_radius=8, command=theme_light)
+button_light = ctk.CTkButton(
+    master=frame,
+    text="Light mode",
+    font=("consolas", 24),
+    corner_radius=8,
+    command=theme_light
+)
 button_light.place(
     x=10,
     y=50
@@ -246,6 +264,7 @@ ____________________
 '''
 
 # Generate key section
+
 frame2 = ctk.CTkFrame(
     master=root
 )
@@ -300,6 +319,7 @@ label_warning.pack(
 )
 
 # Run the application
+
 root.mainloop()
 
 '''
