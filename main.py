@@ -82,7 +82,7 @@ def update_widgets_theme():
 
 # Process for encryption/decryption
 
-def update_variable():
+def update_variable(): # get if encrypt or decrypt
     global switch_state
     if switch.get() == 1:  # ON state
         switch_state = 1
@@ -92,7 +92,7 @@ def update_variable():
         lable_state = "Password To Encrypt"
     labele.configure(text=lable_state)
 
-def start_encryption():
+def start_encryption(): # start encryption
     password = entry1.get()
     key = entry2.get()
     key = [char for char in key]
@@ -103,12 +103,16 @@ def start_encryption():
         chars = key
         decryption_tool = string.punctuation + string.digits + string.ascii_letters
         decryption_tool = list(decryption_tool)
+
         for letter in password:
             index = chars.index(letter)
             cipher_text += decryption_tool[index]
+
+
     elif switch_state == 2:  # encryption
         chars = string.punctuation + string.digits + string.ascii_letters
         chars = list(chars)
+
         for letter in password:
             index = chars.index(letter)
             cipher_text += key[index]
@@ -127,6 +131,7 @@ def generate_key():
     textbox.see(tk.END)
 
 # declaring variables
+
 switch_state = 2
 
 '''
@@ -235,9 +240,11 @@ button_dark = ctk.CTkButton(
     master=frame,
     text="Dark mode",
     font=("consolas",24),
+    text_color="#000000",
     corner_radius=8,
     command=theme_dark,
-    fg_color="#32CD32"
+    fg_color="#333333",
+    hover_color="#555555"
 )
 button_dark.place(
     x=10,
@@ -248,8 +255,11 @@ button_light = ctk.CTkButton(
     master=frame,
     text="Light mode",
     font=("consolas", 24),
+    text_color="#000000",
     corner_radius=8,
-    command=theme_light
+    command=theme_light,
+    fg_color="gray86",
+    hover_color="#999999"
 )
 button_light.place(
     x=10,
@@ -295,8 +305,18 @@ button2_generate = ctk.CTkButton(
     fg_color="#32CD32"
 )
 button2_generate.pack(
-    pady=5,
+    pady=10,
     padx=10
+)
+
+label = ctk.CTkLabel(
+    master=frame2,
+    text="key",
+
+)
+label.pack(
+    pady=0,
+    padx=1,
 )
 
 textbox = ctk.CTkTextbox(
