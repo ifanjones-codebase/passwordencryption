@@ -11,7 +11,7 @@ for mac:
         I looked online and suggest you do the same
 _______________________________________________________________________________________________________________
 
-just coppy the code in to your editor if you don't want to install the file as idk what else is in it,
+just copy the code in to your editor if you don't want to install the file as idk what else is in it,
 I think I accidentally uploaded all my plugins in the git-file XD
 _______________________________________________________________________________________________________________
 '''
@@ -64,20 +64,41 @@ def theme_light():
 # Function to update widgets' text color
 
 def update_widgets_theme():
-    label.configure(text_color=theme_text_colour)
-    labele.configure(text_color=theme_text_colour)
-    label2.configure(text_color=theme_text_colour)
-    switch.configure(text_color=theme_text_colour)
-    label_generate.configure(text_color=theme_text_colour)
-    label_warning.configure(text_color=theme_text_colour)
+    label.configure(
+        text_color=theme_text_colour
+    )
+    labele.configure(
+        text_color=theme_text_colour
+    )
+    label2.configure(
+        text_color=theme_text_colour
+    )
+    switch.configure(
+        text_color=theme_text_colour
+    )
+    label_generate.configure(
+        text_color=theme_text_colour
+    )
+    label_warning.configure(
+        text_color=theme_text_colour
+    )
 
-    button_dark.configure(fg_color="gray30", hover_color="gray45", text_color="#000000")
-    button_light.configure(fg_color="gray85", hover_color="gray70", text_color="#000000")
-    button_encrypt.configure(fg_color=theme_text_colour, hover_color="lightgreen")
+    button_dark.configure(fg_color="gray30",
+                          hover_color="gray45",
+                          text_color="#000000")
+    button_light.configure(fg_color="gray85",
+                           hover_color="gray70",
+                           text_color="#000000")
+    button_encrypt.configure(fg_color=theme_text_colour,
+                             hover_color="lightgreen")
 
-    button2_generate.configure(fg_color="gray30", hover_color="gray45", text_color="#000000")
-    button2_generate.configure(fg_color="gray85", hover_color="gray70", text_color="#000000")
-    button2_generate.configure(fg_color=theme_text_colour, hover_color="lightgreen")
+    button2_generate.configure(fg_color="gray30",
+                               hover_color="gray45",
+                               text_color="#000000")
+    button2_generate.configure(fg_color="gray85", hover_color="gray70",
+                               text_color="#000000")
+    button2_generate.configure(fg_color=theme_text_colour,
+                               hover_color="lightgreen")
 
 
 # Process for encryption/decryption
@@ -312,7 +333,6 @@ button2_generate.pack(
 label = ctk.CTkLabel(
     master=frame2,
     text="key",
-
 )
 label.pack(
     pady=0,
@@ -329,9 +349,14 @@ textbox.pack(
 
 label_warning = ctk.CTkLabel(
     master=frame2,
-    text="write down your key somewhere, if you lose it you lose everything. store it in a text file or something",
+    text="write down your key somewhere,"
+         " if you lose it you lose everything."
+         " store it in a text file or something",
     text_color=theme_text_colour,
-    font=("consolas", 10)
+    font=(
+        "consolas",
+        10
+    )
 )
 label_warning.pack(
     pady=12,
@@ -344,7 +369,10 @@ root.mainloop()
 
 '''
 ____________________________________________________________________________________________________
+
 this is my 1st time making a complex program with ui that isn't interacted with using the terminal
+
 if its not the most efficient thing in the world as i learn it may be updated in the future
+
 ____________________________________________________________________________________________________
 '''
