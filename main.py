@@ -85,20 +85,30 @@ def update_widgets_theme():
 
     button_dark.configure(fg_color="gray30",
                           hover_color="gray45",
-                          text_color="#000000")
+                          text_color="#000000"
+    )
     button_light.configure(fg_color="gray85",
                            hover_color="gray70",
-                           text_color="#000000")
+                           text_color="#000000"
+    )
     button_encrypt.configure(fg_color=theme_text_colour,
-                             hover_color="lightgreen")
+                             hover_color="lightgreen"
+    )
+    switch.configure(
+        fg_color="#ffffff"
+    )
 
     button2_generate.configure(fg_color="gray30",
                                hover_color="gray45",
-                               text_color="#000000")
-    button2_generate.configure(fg_color="gray85", hover_color="gray70",
-                               text_color="#000000")
+                               text_color="#000000"
+    )
+    button2_generate.configure(fg_color="gray85",
+                               hover_color="gray70",
+                               text_color="#000000"
+    )
     button2_generate.configure(fg_color=theme_text_colour,
-                               hover_color="lightgreen")
+                               hover_color="lightgreen"
+    )
 
 
 # Process for encryption/decryption
@@ -111,7 +121,9 @@ def update_variable(): # get if encrypt or decrypt
     else:  # OFF state
         switch_state = 2
         lable_state = "Password To Encrypt"
-    labele.configure(text=lable_state)
+    labele.configure(
+        text=lable_state
+    )
 
 def start_encryption(): # start encryption
     password = entry1.get()
@@ -122,7 +134,7 @@ def start_encryption(): # start encryption
     cipher_text = ""
     if switch_state == 1:  # decryption
         chars = key
-        decryption_tool = string.punctuation + string.digits + string.ascii_letters
+        decryption_tool = string.digits + string.ascii_letters + string.punctuation
         decryption_tool = list(decryption_tool)
 
         for letter in password:
@@ -131,25 +143,41 @@ def start_encryption(): # start encryption
 
 
     elif switch_state == 2:  # encryption
-        chars = string.punctuation + string.digits + string.ascii_letters
+        chars = string.digits + string.ascii_letters + string.punctuation
         chars = list(chars)
 
         for letter in password:
             index = chars.index(letter)
             cipher_text += key[index]
 
-    label1.insert(tk.END, cipher_text)
-    label1.see(tk.END)
+    label1.insert(
+        tk.END,
+        cipher_text
+    )
+    label1.see(
+        tk.END
+    )
 
 # Generate encryption key
 
 def generate_key():
     chars = " " + string.punctuation + string.digits + string.ascii_letters
-    chars = list(chars)
-    random.shuffle(chars)
-    new_chars = ''.join(chars)
-    textbox.insert(tk.END, new_chars)
-    textbox.see(tk.END)
+    chars = list(
+        chars
+    )
+    random.shuffle(
+        chars
+    )
+    new_chars = ''.join(
+        chars
+    )
+    textbox.insert(
+        tk.END,
+        new_chars
+    )
+    textbox.see(
+        tk.END
+    )
 
 # declaring variables
 
@@ -208,7 +236,8 @@ switch = ctk.CTkSwitch(
     master=frame,
     text="En / De Crypt",
     text_color=theme_text_colour,
-    command=update_variable
+    command=update_variable,
+    #fg_color= nothing but can be updated to a switch background colour if i can get that working
 )
 switch.pack(
     pady=12,
